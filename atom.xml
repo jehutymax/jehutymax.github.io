@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title><![CDATA[rafael campos]]></title>
+    <link href="http://campos.cc/atom.xml" rel="self"/>
+    <link href="http://campos.cc/"/>
+    <updated>2016-05-28T16:23:14-04:00</updated>
+    <id>http://campos.cc/</id>
+    <author>
+        <name><![CDATA[Rafael Campos]]></name>
+        
+    </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
+
+    
+    <entry>
+        <title type="html"><![CDATA[Using Intel Performance Counter Monitor on Mac OS X]]></title>
+        <link href="http://campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/"/>
+        <updated>2014-03-15T15:38:00-04:00</updated>
+        <id>http://campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x</id>
+        <content type="html"><![CDATA[<h4 id="what-im-doing">What I’m doing</h4>
+<p>I needed to profile a C++ method for a graduate course I’m taking. More specifically, I wanted to be able to see memory access patterns and how the hit ratios for cache memory were affected by different coding strategies.</p>
+<p>The alternative I chose was Intel’s Performance Counter Monitor (PCM), documented and freely available for download at <a href="http://www.intel.com/software/pcm">Intel’s website</a>.</p>
+<p>Although not difficult, using it wasn’t as straightforward as I would have liked, so here’s a straight to the point setup tutorial for Mac OS X.</p>
+<!--more-->
+<h4 id="what-youll-need">What you’ll need</h4>
+<ol type="1">
+<li><p>Download Intel PCM <a href="http://www.intel.com/software/pcm">here</a> and extract it wherever you like to keep your libraries and packages. I’ll refer to this directory as <em>$(PCM_ROOT)</em>.</p></li>
+<li><p>XCode (I’m using version 5, but it should work just as well with previous versions - PCM requires at least XCode 4.2; gcc and make should be available as well).</p></li>
+<li><p>A C++ application you can’t wait to profile! #### Step 1: Install PCM</p></li>
+</ol>
+<p>To use PCM, its drivers must be built and properly installed. We’re going to opt for the Automatic install, since we don’t need to place the generated files anywhere specific. For this, administrator privilege, (<code>sudo</code>), will be needed.</p>
+<p>Load up <strong>Terminal</strong> and <code>cd</code> your way into <em>$(PCM_ROOT)</em>. Now it’s basically the specific instructions that ship with PCM, namely:</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class="code">
+<figcaption>
+<span></span>
+</figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre>
+</td>
+<td class="code">
+<pre><code class=''><span class='line'>$ cd MacMSRDriver
+</span><span class='line'>$ make install</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+</notextile>
+</div>
+<p>This is what’s happening:</p>
+<p><code>kextload.sh</code> will load the driver, <code>libPcmMsr.dylib</code> will be placed in <code>/usr/lib</code> and the header files <code>MSRAccessor.h</code> and <code>MSRKernel.h</code> will be copied to <code>/usr/include</code>.</p>
+<p>Then, assuming everything worked out ok:</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class="code">
+<figcaption>
+<span></span>
+</figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre>
+</td>
+<td class="code">
+<pre><code class=''><span class='line'>$ cd ..
+</span><span class='line'>$ make</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+</notextile>
+</div>
+This builds the utility applications and the object files and should give you the executable. To test it, for example:
+<div class="bogus-wrapper">
+<notextile>
+<figure class="code">
+<figcaption>
+<span></span>
+</figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+</pre>
+</td>
+<td class="code">
+<pre><code class=''><span class='line'>$ ./pcm.x 1</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+</notextile>
+</div>
+<p>If this works, Intel PCM is properly installed.</p>
+<h4 id="step-2-using-pcms-cpu-counters-in-your-code">Step 2: Using PCM’s CPU Counters in your code</h4>
+<p>For me, this was the tricky part. Figuring out exactly which files to link against was basically trial and error, hence this post.</p>
+<p>In your <code>.cpp</code> file, you just need to include the proper header. To do this, add the <em>$(PCM_ROOT)</em> to the <code>User Header Search Paths</code> property under your project’s <em>Build Settings</em> on XCode. With this in place, you can simply add to your program file:</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class="code">
+<figcaption>
+<span></span>
+</figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+</pre>
+</td>
+<td class="code">
+<pre><code class='cpp'><span class='line'><span class="cp">#include &lt;cpucounters.h&gt;</span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+</notextile>
+</div>
+<p>PCM methods are not encapsulated in any namespace, so you can just go ahead and use it like the example below:</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class="code">
+<figcaption>
+<span></span>
+</figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre>
+</td>
+<td class="code">
+<pre><code class='cpp'><span class='line'><span class="n">PCM</span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="n">PCM</span><span class="o">::</span><span class="n">getInstance</span><span class="p">();</span>
+</span><span class='line'><span class="n">m</span><span class="o">-&gt;</span><span class="n">program</span> <span class="p">(</span><span class="n">PCM</span><span class="o">::</span><span class="n">DEFAULT_EVENTS</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">-&gt;</span><span class="n">program</span><span class="p">()</span> <span class="o">!=</span> <span class="n">PCM</span><span class="o">::</span><span class="n">Success</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">SystemCounterState</span> <span class="n">before_sstate</span> <span class="o">=</span> <span class="n">getSystemCounterState</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// method call to be profiled goes here!</span>
+</span><span class='line'><span class="n">SystemCounterState</span> <span class="n">after_sstate</span> <span class="o">=</span> <span class="n">getSystemCounterState</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Instructions per Clock: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">getIPC</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">)</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="s">&quot;</span><span class="se">\n</span><span class="s">L3 cache hit ratio: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">getL3CacheHitRatio</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">)</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="s">&quot;</span><span class="se">\n</span><span class="s">L2 cache hit ratio: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">getL2CacheHitRatio</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">)</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="s">&quot;</span><span class="se">\n</span><span class="s">Wasted cycles caused by L3 misses: &quot;</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="n">getCyclesLostDueL3CacheMisses</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">)</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="s">&quot;</span><span class="se">\n</span><span class="s">Bytes read from DRAM: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">getBytesReadFromMC</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">))</span> <span class="o">&lt;&lt;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">m</span><span class="o">-&gt;</span><span class="n">cleanup</span><span class="p">();</span>
+</span></code></pre>
+</td>
+</tr>
+</table>
+</div>
+</figure>
+</notextile>
+</div>
+<p>Building your program now will result in linker errors. There are a few files that your application has to link against:</p>
+<ul>
+<li>libPcmMsr.dylib</li>
+<li>cpucounters.o</li>
+<li>client_bw.o</li>
+<li>pci.o</li>
+<li>msr.o</li>
+</ul>
+<p><code>libPcmMsr.dylib</code> is under <code>/usr/lib</code>, while the other files are under <em>$(PCM_ROOT)</em>. Back to the <em>Build Settings</em> on XCode, search for the <code>Other Linker Flags</code> property and add the full path for all these files. Dragging them from <em>Finder</em> works as expected. The resulting list should be similar to the following. Note that the first file, <code>libboost...</code> is unrelated and specific to my project.</p>
+<figure>
+<img src="http://campos.cc/images/post1/other_linker_flags.jpg" title="Other Linker Flags Screenshot" alt="Other Linker Flags screenshot" /><figcaption>Other Linker Flags screenshot</figcaption>
+</figure>
+<p>Your application should build successfully at this point.</p>
+<div id="refs" class="references">
+
+</div>
+]]></content>
+    </entry>
+    
+</feed>
