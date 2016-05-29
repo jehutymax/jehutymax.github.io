@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: http://campos.cc/sitemap.xml
+Sitemap: http://jehutymax.github.io/sitemap.xml
