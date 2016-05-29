@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     <title><![CDATA[Category: programming | rafael campos]]></title>
-    <link href="http://jehutymax.github.io/blog/categories/programming/atom.xml" rel="self"/>
-    <link href="http://jehutymax.github.io/"/>
-    <updated>2016-05-29T15:04:02-04:00</updated>
-    <id>http://jehutymax.github.io/</id>
+    <link href="http://www.campos.cc/blog/categories/programming/atom.xml" rel="self"/>
+    <link href="http://www.campos.cc/"/>
+    <updated>2016-05-29T15:44:06-04:00</updated>
+    <id>http://www.campos.cc/</id>
     <author>
         <name><![CDATA[Rafael Campos]]></name>
         
@@ -15,9 +15,9 @@
     
     <entry>
         <title type="html"><![CDATA[Using Intel Performance Counter Monitor on Mac OS X]]></title>
-        <link href="http://jehutymax.github.io/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/"/>
+        <link href="http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/"/>
         <updated>2014-03-15T15:38:00-04:00</updated>
-        <id>http://jehutymax.github.io/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x</id>
+        <id>http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x</id>
         <content type="html"><![CDATA[<h4 id="what-im-doing">What I’m doing</h4>
 <p>I needed to profile a C++ method for a graduate course I’m taking. More specifically, I wanted to be able to see memory access patterns and how the hit ratios for cache memory were affected by different coding strategies.</p>
 <p>The alternative I chose was Intel’s Performance Counter Monitor (PCM), documented and freely available for download at <a href="http://www.intel.com/software/pcm">Intel’s website</a>.</p>
