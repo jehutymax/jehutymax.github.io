@@ -9,13 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Category: programming - rafael campos</title>
+        <title>The Software for a Wedding - rafael campos</title>
         <meta name="author" content="Rafael Campos">
         
-        <meta name="description" content="Category: programming">
+        <meta name="description" content="The Software for a Wedding Jun 2nd, 2016 self programming python web django Comments Elisabeth and I are getting married in a few weeks, which means &hellip;">
         
         <meta name="viewport" content="width=device-width">
-        <link rel="canonical" href="http://www.campos.cc/blog/categories/programming">
+        <link rel="canonical" href="http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding">
 
         <!--- MathJax Configuration -->
         <script type="text/javascript"
@@ -87,44 +87,33 @@
                 
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
-                    <article class="page">
-
+                    <article class="article article--single">
+    <header class="article__header">
     
-    <header>
-        <h1 class="page__title">
-            Category: Programming
-        </h1>
-    </header>
-    <hr class="divider">
+        <h1 class="article__title">The Software for a Wedding</h1>
     
 
-    <div id="archive-list">
     
-        
-        
-            
-            <h2>2016</h2>
-        
-        <article class="article article--archive">
+        <div class="article__meta clearfix">
             
 
-<div class="row">
 
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <time class="article__date article__date--listing" datetime="2016-06-02T11:29:55-04:00" pubdate>
-            <span class='month'>Jun</span> <span class='day'>02</span>
-        </time>
-    </div>
-    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-        <h1 class="article__title h3"><a href="/post/2016/06/02/the-software-for-a-wedding/">The Software for a Wedding</a></h1>
-        
-            <footer class="article__meta">
-                
+
+
+
+
+    <time class="article__date pull-left" datetime="2016-06-02T11:29:55-04:00" pubdate><i class="fa fa-calendar"></i> Jun 2nd, 2016</time>
+
+
+
+
+            
 
     <div class="article__tags pull-left">
         <i class="fa fa-tags"></i>
         <ul class="unstyled">
         
+
             
                 <li><a class='category' href='/blog/categories/self/'>self</a></li>
             
@@ -136,68 +125,127 @@
             
                 <li><a class='category' href='/blog/categories/django/'>django</a></li>
             
-            
+        
         </ul>
     </div>
 
 
-            </footer>
-        
-        <hr class="divider">
-    </div>
-
-</div>
-
-        </article>
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
     
-        
-        
-            
-            <h2>2014</h2>
-        
-        <article class="article article--archive">
-            
-
-<div class="row">
-
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <time class="article__date article__date--listing" datetime="2014-03-15T15:38:00-04:00" pubdate>
-            <span class='month'>Mar</span> <span class='day'>15</span>
-        </time>
-    </div>
-    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-        <h1 class="article__title h3"><a href="/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/">Using Intel Performance Counter Monitor on Mac OS X</a></h1>
-        
-            <footer class="article__meta">
-                
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/programming/'>programming</a></li>
-            
-                <li><a class='category' href='/blog/categories/c-plus-plus/'>c++</a></li>
-            
-            
-        </ul>
-    </div>
+</header>
 
 
-            </footer>
-        
-        <hr class="divider">
-    </div>
+
+
+    <p>Elisabeth and I are getting married in a few weeks, which means we’ve been in <em>wedding-planning mode</em> for the past year or so. And while planning required the typical steps of finding a suitable venue and selecting a caterer and so on, we decided early on to rely enough on a wedding website, such that we could get away with (aka, the requirements):</p>
+<ul>
+<li><p>Instead of sending out one <em>Save the Date</em> card and one <em>Invitation</em> in the mail to each guest, we would send out a single invitation with the url for the website;</p></li>
+<li><p>Manage RSVPs online instead of by mail;</p></li>
+<li><p>Eliminate the need to print a Wedding Program by having one online;</p></li>
+<li><p>Only have an online registry;</p></li>
+<li><p>Concentrate all guest-facing wedding-related information in one place;</p></li>
+</ul>
+<p>Except for the registry - we used <a href="https://www.zola.com/invite/rafaelcdn">Zola</a><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>-, I decided to code most things on my own.</p>
+<p><a href="http://www.ElisabethAndRafael.com"><img src="http://shrinktheweb.snapito.io/v2/webshot/spu-ea68c8-ogi2-3cwn3bmfojjlb56e?size=800x0&amp;screen=1024x768&amp;url=http%3A%2F%2Fwww.elisabethandrafael.com" style="width:77.0%" /></a></p>
+<p>The end result is here: <a href="http://www.ElisabethAndRafael.com">www.ElisabethAndRafael.com</a>;</p>
+<!--more-->
+<h3 id="the-website">The website</h3>
+<p>I decided to use Python to develop the website, and between Flask and Django, the latter seemed to be better suited. I picked up a copy of <a href="http://amzn.to/1TZs9D4">Two Scoops of Django</a>, and went to work.</p>
+<p>The book has a Django cookie-cutter project on <a href="https://github.com/pydanny/cookiecutter-django">Github</a> that makes it incredibly quick to kickstart a project.</p>
+<p>Then, with a decent Bootstrap theme in hand, it really becomes a matter of editing the HTML and CSS (I didn’t use a preprocessor for this project) until it looks good.</p>
+<p>A good portion of the website is made up of static content, with tons of images and a little JavaScript here and there for <em>Contact Us</em> functionality, loading up the external Zola widget, and other little gimmicks, like a countdown to the day and Bootstrap Alerts.</p>
+<p>For the dynamic content, the website was setup to use <strong>PostgreSQL</strong>. Django’s Models abstraction made it fun to create the queries required for the Views.</p>
+<h4 id="email-functionality">Email functionality</h4>
+<p>For all things email, I went with <strong>Mailgun</strong>. They have a very good free plan for small scale applications, and the API was very easy to use in Python.</p>
+<p>A few days ago we sent out a <em>marketing-style</em> email update to the guests who had RSVP’d.</p>
+<p>The email assets (HTML, images) were uploaded to an Amazon S3 bucket, and made public. Then, the script was simple:</p>
+Then the script was as simple as:
+<div>
+<script src='https://gist.github.com/752665d992e7acab2f343142191f651d.js'></script>
+<noscript>
+<pre><code>import string
+import requests
+
+html = &#39;https://s3.amazonaws.com/.../email.htm&#39;
+content = requests.get(html)
+
+DJANGO_MAILGUN_SERVER_NAME = &#39;&#39;
+DJANGO_MAILGUN_API_KEY = &#39;&#39;
+
+recipient_list = [&#39;email@one.com&#39;, &#39;email@two.com&#39;]
+
+for email in recipient_list:
+    requests.post(
+        DJANGO_MAILGUN_SERVER_NAME + &quot;/messages&quot;,
+        auth=(&quot;api&quot;, DJANGO_MAILGUN_API_KEY),
+        data={&quot;from&quot;: &quot;Us &lt;us@email.com&gt;&quot;,
+              &quot;to&quot;: email,
+              &quot;o:campaign&quot;: &quot;&quot;, # optional, but it was cool (and creepy) to track opens and clicks.
+              &quot;subject&quot;: &quot;Your subject&quot;,
+              &quot;text&quot;: &#39;Your alt text for non-html clients&#39;,
+              &quot;html&quot;: content.text})</code></pre>
+</noscript>
+</div>
+<p>The actual script was a bit different: the email had links that I wanted to personalize per recipient, so there was a <em>string.replace()</em> involved, but the gist is the same.</p>
+<h4 id="internationalization">Internationalization</h4>
+<p>I had family and friends in Brazil, some of which wouldn’t be able to make it to the wedding, but in an effort to be inclusive, I thought it’d be nice to have all the content available in Portuguese as well.</p>
+<p>Django’s support for i18n internationalization made it less complicated (if not less annoying) to make the website available in both languages.</p>
+<h3 id="rsvp">RSVP</h3>
+<p>Allowing people to RSVP online was the most elaborate feature of the website. Guests were asked to enter their email and a 4-digit code they had received with the invitation. <img src="/images/post2/rsvp.png" align="center," style="width:40.0%" /></p>
+<p>The first time they logged-in, the email would be linked to the wedding code, and the same email would have to be used if they wanted to change their response.</p>
+<p>The 4-digit codes were generated taking the SHA-1 hash of each guest row (name, address, and so on, saved in a spreadsheet and exported as CSV), transforming it to URL-friendly base64 and taking the first 4 digits. Limiting it to 4 digits made collisions very likely, but I was more concerned with ease-of-use, and the number of guests was small enough that I was able to get away with running a validation script to make sure all codes were unique.</p>
+<div>
+<script src='https://gist.github.com/2376aea7b412924822e3fb9725def4b3.js'></script>
+<noscript>
+<pre><code>import csv
+import base64
+import hashlib
+
+f = open(&#39;guests.csv&#39;, &quot;r&quot;, encoding=&#39;utf-8&#39;, errors=&#39;ignore&#39;)
+csv_f = csv.reader(f)
+for row in csv_f:
+    s = &#39;&#39;
+    for element in row:
+        s += element
+coded_s = s.encode(encoding=&#39;utf-8&#39;)
+mrHash = hashlib.sha1(coded_s)
+code = base64.urlsafe_b64encode(mrHash.digest()[0:3])
+final_code = code.decode(&#39;utf-8&#39;)
+final_code = final_code.replace(&#39;_&#39;, &#39;x&#39;)
+final_code = final_code.replace(&#39;-&#39;, &#39;z&#39;)
+print(final_code.upper())
+</code></pre>
+</noscript>
+</div>
+<h3 id="deployment">Deployment</h3>
+<p>The site was deployed to <strong>Heroku</strong>, using its <a href="https://github.com/heroku/heroku-buildpack-python">Python Buildpack</a>. All static assets were uploaded to <strong>Amazon S3</strong> as part of the deployment process, with the paths updated on the fly. <strong>Cloudflare</strong>’s CDN was thrown in the mix as well.</p>
+<p>Unfortunately, Heroku’s free tier didn’t cut it: the fact that the server process had to be restarted when someone visited after some inactivity period, made the site very, very slow. So I had to upgrade to the <em>Hobby</em> tier at $7/month.</p>
+<div id="refs" class="references">
 
 </div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>contains affiliate link, a everyone gets $50 kind of thing.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
 
-        </article>
-    
-</div>
 
 
 </article>
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
 
                 </div>
 
@@ -366,7 +414,10 @@
     var disqus_shortname = 'fieldsrender';
     
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding/';
+        var disqus_url = 'http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding/';
+        var disqus_script = 'embed.js';
     
     (function () {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

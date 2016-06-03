@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding/</loc>
+<lastmod>2016-06-02T11:29:55-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/</loc>
 <lastmod>2014-03-15T15:38:00-04:00</lastmod>
 </url>
@@ -33,5 +37,17 @@
 </url>
 <url>
 <loc>http://www.campos.cc/blog/categories/c-plus-plus/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/blog/categories/self/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/blog/categories/python/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/blog/categories/web/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/blog/categories/django/</loc>
 </url>
 </urlset>

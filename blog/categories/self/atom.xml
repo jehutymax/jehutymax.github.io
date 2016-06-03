@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title><![CDATA[Category: programming | rafael campos]]></title>
-    <link href="http://www.campos.cc/blog/categories/programming/atom.xml" rel="self"/>
+    <title><![CDATA[Category: self | rafael campos]]></title>
+    <link href="http://www.campos.cc/blog/categories/self/atom.xml" rel="self"/>
     <link href="http://www.campos.cc/"/>
     <updated>2016-06-03T09:18:49-04:00</updated>
     <id>http://www.campos.cc/</id>
@@ -103,76 +103,6 @@ print(final_code.upper())
 <li id="fn1"><p>contains affiliate link, a everyone gets $50 kind of thing.<a href="#fnref1">↩</a></p></li>
 </ol>
 </section>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Using Intel Performance Counter Monitor on Mac OS X]]></title>
-        <link href="http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/"/>
-        <updated>2014-03-15T15:38:00-04:00</updated>
-        <id>http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x</id>
-        <content type="html"><![CDATA[<h4 id="what-im-doing">What I’m doing</h4>
-<p>I needed to profile a C++ method for a graduate course I’m taking. More specifically, I wanted to be able to see memory access patterns and how the hit ratios for cache memory were affected by different coding strategies.</p>
-<p>The alternative I chose was Intel’s Performance Counter Monitor (PCM), documented and freely available for download at <a href="http://www.intel.com/software/pcm">Intel’s website</a>.</p>
-<p>Although not difficult, using it wasn’t as straightforward as I would have liked, so here’s a straight to the point setup tutorial for Mac OS X.</p>
-<!--more-->
-<h4 id="what-youll-need">What you’ll need</h4>
-<ol type="1">
-<li><p>Download Intel PCM <a href="http://www.intel.com/software/pcm">here</a> and extract it wherever you like to keep your libraries and packages. I’ll refer to this directory as <em>$(PCM_ROOT)</em>.</p></li>
-<li><p>XCode (I’m using version 5, but it should work just as well with previous versions - PCM requires at least XCode 4.2; gcc and make should be available as well).</p></li>
-<li><p>A C++ application you can’t wait to profile! #### Step 1: Install PCM</p></li>
-</ol>
-<p>To use PCM, its drivers must be built and properly installed. We’re going to opt for the Automatic install, since we don’t need to place the generated files anywhere specific. For this, administrator privilege, (<code>sudo</code>), will be needed.</p>
-<p>Load up <strong>Terminal</strong> and <code>cd</code> your way into <em>$(PCM_ROOT)</em>. Now it’s basically the specific instructions that ship with PCM, namely:</p>
-<pre class="plain"><code>$ cd MacMSRDriver
-$ make install</code></pre>
-<p>This is what’s happening:</p>
-<p><code>kextload.sh</code> will load the driver, <code>libPcmMsr.dylib</code> will be placed in <code>/usr/lib</code> and the header files <code>MSRAccessor.h</code> and <code>MSRKernel.h</code> will be copied to <code>/usr/include</code>.</p>
-<p>Then, assuming everything worked out ok:</p>
-<pre class="plain"><code>$ cd ..
-$ make</code></pre>
-<p>This builds the utility applications and the object files and should give you the executable. To test it, for example:</p>
-<pre class="plain"><code>$ ./pcm.x 1</code></pre>
-<p>If this works, Intel PCM is properly installed.</p>
-<h4 id="step-2-using-pcms-cpu-counters-in-your-code">Step 2: Using PCM’s CPU Counters in your code</h4>
-<p>For me, this was the tricky part. Figuring out exactly which files to link against was basically trial and error, hence this post.</p>
-<p>In your <code>.cpp</code> file, you just need to include the proper header. To do this, add the <em>$(PCM_ROOT)</em> to the <code>User Header Search Paths</code> property under your project’s <em>Build Settings</em> on XCode. With this in place, you can simply add to your program file:</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#include &lt;cpucounters.h&gt;</span></code></pre></div>
-<p>PCM methods are not encapsulated in any namespace, so you can just go ahead and use it like the example below:</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">PCM *m = PCM::getInstance();
-m-&gt;program (PCM::DEFAULT_EVENTS, NULL);
-
-<span class="kw">if</span> (m-&gt;program() != PCM::Success) <span class="kw">return</span> <span class="dv">-1</span>;
-
-SystemCounterState before_sstate = getSystemCounterState();
-<span class="co">// method call to be profiled goes here!</span>
-SystemCounterState after_sstate = getSystemCounterState();
-
-std::cout &lt;&lt; <span class="st">&quot;Instructions per Clock: &quot;</span> &lt;&lt; getIPC(before, after) &lt;&lt;
-    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">L3 cache hit ratio: &quot;</span> &lt;&lt; getL3CacheHitRatio(before, after) &lt;&lt;
-    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">L2 cache hit ratio: &quot;</span> &lt;&lt; getL2CacheHitRatio(before, after) &lt;&lt;
-    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">Wasted cycles caused by L3 misses: &quot;</span> &lt;&lt; 
-    getCyclesLostDueL3CacheMisses(before, after) &lt;&lt;
-    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">Bytes read from DRAM: &quot;</span> &lt;&lt; getBytesReadFromMC(before, after)) &lt;&lt;
-    std::endl;
-
-m-&gt;cleanup();</code></pre></div>
-<p>Building your program now will result in linker errors. There are a few files that your application has to link against:</p>
-<ul>
-<li>libPcmMsr.dylib</li>
-<li>cpucounters.o</li>
-<li>client_bw.o</li>
-<li>pci.o</li>
-<li>msr.o</li>
-</ul>
-<p><code>libPcmMsr.dylib</code> is under <code>/usr/lib</code>, while the other files are under <em>$(PCM_ROOT)</em>. Back to the <em>Build Settings</em> on XCode, search for the <code>Other Linker Flags</code> property and add the full path for all these files. Dragging them from <em>Finder</em> works as expected. The resulting list should be similar to the following. Note that the first file, <code>libboost...</code> is unrelated and specific to my project.</p>
-<figure>
-<img src="%7B%7Broot_url%7D%7D/images/post1/other_linker_flags.jpg" title="Other Linker Flags Screenshot" alt="Other Linker Flags screenshot" /><figcaption>Other Linker Flags screenshot</figcaption>
-</figure>
-<p>Your application should build successfully at this point.</p>
-<div id="refs" class="references">
-
-</div>
 ]]></content>
     </entry>
     
