@@ -9,11 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Level Set Morphing - rafael campos</title>
+        <title>Feature-Based Level Set Morphing - rafael campos</title>
         <meta name="author" content="Rafael Campos">
         
-        <meta name="description" content=" Level Set Morphing Overview
-Preliminary Results References ">
+        <meta name="description" content="Feature-Based Level Set Morphing Please note this page is still under development.
+Authors
+Rafael Campos, Prof. David Breen, Ken Museth
+Overview &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.campos.cc/projects/morph">
@@ -93,19 +95,45 @@ Preliminary Results References ">
     
     <header>
         <h1 class="page__title">
-            Level Set Morphing
+            Feature-Based Level Set Morphing
         </h1>
     </header>
     <hr class="divider">
     
 
-    <h4 id="overview">Overview</h4>
+    <p>Please note this page is still under development.</p>
+<h4 id="authors">Authors</h4>
+<p>Rafael Campos, <a href="https://www.cs.drexel.edu/~david">Prof. David Breen</a>, <a href="http://museth.org">Ken Museth</a></p>
+<h4 id="overview">Overview</h4>
+<p>This has been the main R&amp;D project for my Masters degree at Drexel University. The current Level Set tools for morphing offer very little in terms of user control. Mesh geometry morphing algorithms have finer control over how the transformation occurs, but has many drawbacks, one of which is not supporting change in topology of the source and target models.</p>
+<p>We have used OpenVDB and Houdini 15 for development. The source code will be made available after publication.</p>
+<p>Below are some of the results we’ve obtained so far. We casually refer to the existing Level Set Morph algorithm as <em>Vanilla</em> and to our algorithm as <em>Warped Morph</em>.</p>
 <h4 id="preliminary-results">Preliminary Results</h4>
+<h3 id="vanilla">Vanilla</h3>
+<div class="embed-video-container">
+<iframe src="//player.vimeo.com/video/166646449?loop=1">
+</iframe>
+</div>
+<p>Above is the existing morph algorithm for level sets. The intermediate shapes are very blob-like and not very pleasant.</p>
+<h3 id="warped-morph">Warped Morph</h3>
 <div class="embed-video-container">
 <iframe src="//player.vimeo.com/video/166646448?loop=1">
 </iframe>
 </div>
-<h5 id="references" class="unnumbered">References</h5>
+<p>A smoother transition between models can be seen in this example. Point feature correspondences have been estabilished between the source and target models.</p>
+<h3 id="support-for-topology-change">Support for topology change</h3>
+<div class="embed-video-container">
+<iframe src="//player.vimeo.com/video/159202991?loop=1">
+</iframe>
+</div>
+<p>This is one of the benefits of using level sets to represent the models - topology changes behave very well.</p>
+<div class="embed-video-container">
+<iframe src="//player.vimeo.com/video/159203116?loop=1">
+</iframe>
+</div>
+<p>Even in extreme scenarios. Although here the Level Set dilation has a lot of space to fill, so the blob-like appearance is inevitable.</p>
+<h5 id="references">References</h5>
+<p><em>{to come}</em></p>
 <div id="refs" class="references">
 
 </div>
@@ -167,7 +195,7 @@ Preliminary Results References ">
         </li>
         
         <li>
-            <h6><a href="/projects/pingo/">Pingo Solver</a></h6> 
+            <h6><a href="/projects/pingo-solver/">Pingo Solver</a></h6> 
             <div class="project-metadata">
             OpenGL particle-based fluid solver 
             </div>
@@ -175,7 +203,7 @@ Preliminary Results References ">
         </li>
         
         <li>
-            <h6><a href="/projects/latam-map/">Latin America Map</a></h6> 
+            <h6><a href="http://www.latam-map.org/about.html">Latin America Map</a></h6> 
             <div class="project-metadata">
             WebGL/Cesium world map with latin-american demographics data 
             </div>
@@ -187,6 +215,14 @@ Preliminary Results References ">
 <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
     <h1>Recent Posts</h1>
     <ul class="divided">
+        
+        <li class="post">
+            <a href="/post/2016/06/07/level-set-morphing-a-few-results/">Level Set Morphing: a few results</a>
+        </li>
+        
+        <li class="post">
+            <a href="/post/2016/06/07/ray-tracer-project/">Ray Tracer Project</a>
+        </li>
         
         <li class="post">
             <a href="/post/2016/06/02/the-software-for-a-wedding/">The Software for a Wedding</a>

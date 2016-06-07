@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.campos.cc/post/2016/06/07/level-set-morphing-a-few-results/</loc>
+<lastmod>2016-06-07T09:07:46-04:00</lastmod>
+</url>
+<url>
+<loc>http://www.campos.cc/post/2016/06/07/ray-tracer-project/</loc>
+<lastmod>2016-06-07T09:02:28-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding/</loc>
 <lastmod>2016-06-02T11:29:55-04:00</lastmod>
 </url>
@@ -18,16 +26,19 @@
 <loc>http://www.campos.cc/archives/</loc>
 </url>
 <url>
-<loc>http://www.campos.cc/projects/nikita-render/</loc>
+<loc>http://www.campos.cc/projects/morph/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/about/</loc>
+</url>
+<url>
+<loc>http://www.campos.cc/projects/pingo-solver/</loc>
 </url>
 <url>
 <loc>http://www.campos.cc/cv/</loc>
 </url>
 <url>
-<loc>http://www.campos.cc/projects/morph/</loc>
-</url>
-<url>
-<loc>http://www.campos.cc/about/</loc>
+<loc>http://www.campos.cc/projects/nikita-render/</loc>
 </url>
 <url>
 <loc>http://www.campos.cc/projects/</loc>

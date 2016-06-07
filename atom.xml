@@ -4,7 +4,7 @@
     <title><![CDATA[rafael campos]]></title>
     <link href="http://www.campos.cc/atom.xml" rel="self"/>
     <link href="http://www.campos.cc/"/>
-    <updated>2016-06-03T09:18:49-04:00</updated>
+    <updated>2016-06-07T09:17:12-04:00</updated>
     <id>http://www.campos.cc/</id>
     <author>
         <name><![CDATA[Rafael Campos]]></name>
@@ -12,6 +12,41 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Level Set Morphing: a few results]]></title>
+        <link href="http://www.campos.cc/post/2016/06/07/level-set-morphing-a-few-results/"/>
+        <updated>2016-06-07T09:07:46-04:00</updated>
+        <id>http://www.campos.cc/post/2016/06/07/level-set-morphing-a-few-results</id>
+        <content type="html"><![CDATA[<p><a href="http://www.campos.cc/projects/morph/"><img src="http://www.campos.cc/images/morph/morph_header.png" title="Head to Stormtrooper" alt="Existing Morphing Technique(left) compared to ours(right)" style="width:100.0%" /></a></p>
+<p>While the project is still ongoing, I made a project page and uploaded a few preliminary results that showcase what our algorithm can do.</p>
+<p>In the image above, the existing level-set morphing technique, on the left, is compared to ours, on the right. The link to this example is below:</p>
+<p><a href="https://vimeo.com/150960123">Head to Stormtrooper Morph - Vimeo</a></p>
+<p><a href="http://www.campos.cc/projects/morph/">Project Page</a></p>
+<div id="refs" class="references">
+
+</div>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Ray Tracer Project]]></title>
+        <link href="http://www.campos.cc/post/2016/06/07/ray-tracer-project/"/>
+        <updated>2016-06-07T09:02:28-04:00</updated>
+        <id>http://www.campos.cc/post/2016/06/07/ray-tracer-project</id>
+        <content type="html"><![CDATA[<figure>
+<img src="http://www.campos.cc/images/nikita/nikita_header.png" title="Bunny on Plane" alt="Low-poly Stanford Bunny (1k triangles), Hall Refraction model" /><figcaption>Low-poly Stanford Bunny (1k triangles), Hall Refraction model</figcaption>
+</figure>
+<p>I’ve created a project page for the ray tracer I’ve been working on, as well as made the source code available on Github.</p>
+<ol type="1">
+<li><a href="http://www.campos.cc/projects/nikita-render/">Project Page</a></li>
+<li><a href="https://github.com/jehutymax/nikita-render">Source Code</a></li>
+</ol>
+<div id="refs" class="references">
+
+</div>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[The Software for a Wedding]]></title>
