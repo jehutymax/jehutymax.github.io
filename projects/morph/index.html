@@ -9,10 +9,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Feature-Based Level Set Morphing - rafael campos</title>
+        <title>Feature-Based 3D Level Set Morphing - rafael campos</title>
         <meta name="author" content="Rafael Campos">
         
-        <meta name="description" content="Feature-Based Level Set Morphing Please note this page is still under development.
+        <meta name="description" content="Feature-Based 3D Level Set Morphing Please note this page is still under development.
 Authors
 Rafael Campos, Prof. David Breen, Ken Museth
 Overview &hellip;">
@@ -95,7 +95,7 @@ Overview &hellip;">
     
     <header>
         <h1 class="page__title">
-            Feature-Based Level Set Morphing
+            Feature-Based 3D Level Set Morphing
         </h1>
     </header>
     <hr class="divider">
@@ -109,6 +109,8 @@ Overview &hellip;">
 <p>We have used OpenVDB and Houdini 15 for development. The source code will be made available after publication.</p>
 <p>Below are some of the results we’ve obtained so far. We casually refer to the existing Level Set Morph algorithm as <em>Vanilla</em> and to our algorithm as <em>Warped Morph</em>.</p>
 <h4 id="preliminary-results">Preliminary Results</h4>
+<h3 id="morph-setup">Morph Setup</h3>
+<p><img src="/images/morph/source_horse_features.png" style="width:40.0%" /> <img src="/images/morph/target_camel_features.png" style="width:40.0%" /></p>
 <h3 id="vanilla">Vanilla</h3>
 <div class="embed-video-container">
 <iframe src="//player.vimeo.com/video/166646449?loop=1">
@@ -133,7 +135,12 @@ Overview &hellip;">
 </div>
 <p>Even in extreme scenarios. Although here the Level Set dilation has a lot of space to fill, so the blob-like appearance is inevitable.</p>
 <h5 id="references">References</h5>
-<p><em>{to come}</em></p>
+<ol type="1">
+<li>Breen, D. E., Mauch, S., Whitaker, R. T., &amp; Mao, J. (2001). 3d metamorphosis between different types of geometric models. Paper presented at the Computer Graphics Forum.</li>
+<li>Chen, M., Jones, M. W., &amp; Townsend, P. (1995). Methods for volume metamorphosis Image processing for broadcast and video production (pp. 280-292): Springer.</li>
+<li>Gain, J., &amp; Bechmann, D. (2008). A survey of spatial deformation from a user-centered perspective. ACM Transactions on Graphics (TOG), 27(4), 107.</li>
+<li>Museth, K. (2013). VDB: High-resolution sparse volumes with dynamic topology. ACM Transactions on Graphics (TOG), 32(3), 27.</li>
+</ol>
 <div id="refs" class="references">
 
 </div>
@@ -179,7 +186,7 @@ Overview &hellip;">
     <ul class="divided">
         
         <li>
-            <h6><a href="/projects/morph/">Volumetric Morphing</a></h6> 
+            <h6><a href="/projects/morph/">Feature-based 3D LS Morphing</a></h6> 
             <div class="project-metadata">
             3D Level Set Metamorphosis 
             </div>
