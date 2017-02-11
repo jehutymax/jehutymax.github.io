@@ -4,7 +4,7 @@
     <title><![CDATA[Category: programming | rafael campos]]></title>
     <link href="http://www.campos.cc/blog/categories/programming/atom.xml" rel="self"/>
     <link href="http://www.campos.cc/"/>
-    <updated>2016-06-09T15:44:59-04:00</updated>
+    <updated>2017-02-11T15:21:31+00:00</updated>
     <id>http://www.campos.cc/</id>
     <author>
         <name><![CDATA[Rafael Campos]]></name>
@@ -16,7 +16,7 @@
     <entry>
         <title type="html"><![CDATA[The Software for a Wedding]]></title>
         <link href="http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding/"/>
-        <updated>2016-06-02T11:29:55-04:00</updated>
+        <updated>2016-06-02T16:29:55+01:00</updated>
         <id>http://www.campos.cc/post/2016/06/02/the-software-for-a-wedding</id>
         <content type="html"><![CDATA[<p>Elisabeth and I are getting married in a few weeks, which means we’ve been in <em>wedding-planning mode</em> for the past year or so. And while planning required the typical steps of finding a suitable venue and selecting a caterer and so on, we decided early on to rely enough on a wedding website, such that we could get away with (aka, the requirements):</p>
 <ul>
@@ -109,7 +109,7 @@ print(final_code.upper())
     <entry>
         <title type="html"><![CDATA[Using Intel Performance Counter Monitor on Mac OS X]]></title>
         <link href="http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x/"/>
-        <updated>2014-03-15T15:38:00-04:00</updated>
+        <updated>2014-03-15T15:38:00+00:00</updated>
         <id>http://www.campos.cc/post/2014/03/15/using-intel-performance-monitor-on-mac-os-x</id>
         <content type="html"><![CDATA[<h4 id="what-im-doing">What I’m doing</h4>
 <p>I needed to profile a C++ method for a graduate course I’m taking. More specifically, I wanted to be able to see memory access patterns and how the hit ratios for cache memory were affected by different coding strategies.</p>
