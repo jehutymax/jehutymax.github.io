@@ -9,13 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Nikita Render - rafael campos</title>
+        <title>Wedsite source code now up - rafael campos</title>
         <meta name="author" content="Rafael Campos">
         
-        <meta name="description" content="Nikita Render Nikita is a (admittedly rudimentary) ray tracer (not a path tracer just yet, but that is coming) that I’ve been writing. Stanford &hellip;">
+        <meta name="description" content="Wedsite source code now up Mar 11th, 2017 python programming web Comments The website I developed for my wedding[^fn1], as I outlined in this &hellip;">
         
         <meta name="viewport" content="width=device-width">
-        <link rel="canonical" href="http://www.campos.cc/projects/nikita-render">
+        <link rel="canonical" href="http://www.campos.cc/post/2017/03/11/wedsite-source-code-now-up">
 
         <!--- MathJax Configuration -->
         <script type="text/javascript"
@@ -87,64 +87,75 @@
                 
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
-                    <article class="page">
-
+                    <article class="article article--single">
+    <header class="article__header">
     
-    <header>
-        <h1 class="page__title">
-            Nikita Render
-        </h1>
-    </header>
-    <hr class="divider">
+        <h1 class="article__title">Wedsite source code now up</h1>
     
 
-    <p>Nikita is a (admittedly rudimentary) <strong>ray tracer</strong> (not a path tracer just yet, but that is coming) that I’ve been writing.</p>
-<figure>
-<img src="/images/nikita/bunny_on_plane.png" title="Bunny on Plane" alt="Stanford Bunny (69k triangles), Hall Reflection model" /><figcaption>Stanford Bunny (69k triangles), Hall Reflection model</figcaption>
-</figure>
-<h3 id="features">Features</h3>
-<h4 id="input-output">Input &amp; Output</h4>
-<ul>
-<li>Reads XML Scene files</li>
-<li>Writes PNG image files</li>
-</ul>
-<h4 id="geometry">Geometry</h4>
-<ul>
-<li>Spheres</li>
-<li>Cylinders</li>
-<li>Triangle Meshes read from SMF files</li>
-</ul>
-<h4 id="acceleration">Acceleration</h4>
-<ul>
-<li>Bouding Volume Hierarchy (BVH) tree</li>
-</ul>
-<h4 id="shading">Shading</h4>
-<ul>
-<li>Hall Shading Model:
-<ul>
-<li>Shadows</li>
-<li>Reflections</li>
-<li>Refractions</li>
-</ul></li>
-<li>Image Textures</li>
-<li>Noise-based procedural textures</li>
-</ul>
-<h4 id="lights">Lights</h4>
-<ul>
-<li>Point Lights</li>
-<li>Spot Lights</li>
-</ul>
-<h3 id="references">References</h3>
-<ol type="1">
-<li>Pharr, M. and Humphreys, G., 2004. <a href="http://amzn.to/1r5i6lA">Physically based rendering: From theory to implementation.</a> Morgan Kaufmann.</li>
-<li>Suffern, K.G. and Suffern, K., 2007. <a href="http://amzn.to/1P9HXyG">Ray Tracing from the Ground up.</a> AK Peters.</li>
-</ol>
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2017-03-11T07:22:14+00:00" pubdate><i class="fa fa-calendar"></i> Mar 11th, 2017</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/python/'>python</a></li>
+            
+                <li><a class='category' href='/blog/categories/programming/'>programming</a></li>
+            
+                <li><a class='category' href='/blog/categories/web/'>web</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>The website I developed for my wedding[^fn1], as I outlined in this <a href="/post/2016/06/02/the-software-for-a-wedding/">previous post</a>, reached the end of its lifetime.</p>
+<p>I had already downgraded <em>Heroku</em> back to the free tier, but <em>Amazon S3</em> costs continued to accumulate. And since it has been almost one year since the wedding happened, there seemed to be no reason other than nostalgia to keep the website running.</p>
+<p>The entire source code has been dumped to <a href="%7Bhttps://github.com/jehutymax/wedsite%7D">GitHub</a> - the only modification I’ve made was to replace some of the images with non-descript gradients. With the proper environment variables setup, which are described within the project, it should work as is.</p>
 <div id="refs" class="references">
 
 </div>
 
 
+
 </article>
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
 
                 </div>
 
@@ -326,8 +337,8 @@
     
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.campos.cc/projects/nikita-render/index.html';
-        var disqus_url = 'http://www.campos.cc/projects/nikita-render/index.html';
+        var disqus_identifier = 'http://www.campos.cc/post/2017/03/11/wedsite-source-code-now-up/';
+        var disqus_url = 'http://www.campos.cc/post/2017/03/11/wedsite-source-code-now-up/';
         var disqus_script = 'embed.js';
     
     (function () {
